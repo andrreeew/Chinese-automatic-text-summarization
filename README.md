@@ -12,7 +12,12 @@
 
 录了个简单视频用于展示，见[链接](https://www.bilibili.com/video/BV1ik4y1Q7pf/?vd_source=3bc6e7bf315dca64640ebe38352be259)
 
-<img src="C:\Users\28495\AppData\Roaming\Typora\typora-user-images\image-20240112155323684.png" alt="image-20240112155323684" style="zoom: 33%;" />
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/andrreeew/Chinese-automatic-text-summarization/assets/113843225/2af33f89-cd9d-429d-9365-5c964a3e5e83" alt="image-20240112155323684" style="width: 300px;"/>
+</div>
+
+
+
 
 
 
@@ -104,11 +109,9 @@ pytorch = 1.7.0
 
 ### TextRank
 
-简单来讲通过句子间的相似度关系实现对每个句子打分，分数最高的几个句子作为摘要。具体来说，依据文本构造一个无向图$G$，文本里的每个句子当作图$G$的一个节点$N$，每两个节点之间用一条边相连，边的权重代表两个节点的相似度，也就是两个句子的相似度。我们记节点$N_i$和节点$N_j$之间的边权重为$w_{ij}$，节点$V_i$的分数为$WS(N_i)$。初始情况下每个节点的分数为1。后每次用如下公式更新全部节点，收敛。
-$$
-WS(N_i) = (1 - d) + d \times \sum_{j } \frac{w_{ji}}{\sum_{k }w_{jk}} \times WS(N_j)
-$$
-其中$d$为阻尼系数，一般设置为0.85。在这里面最主要的就是节点$N_i$和节点$N_j$之间的边权重为$w_{ij}$，也就是句子之间的相似度如何定义。
+简单来讲通过句子间的相似度关系实现对每个句子打分，分数最高的几个句子作为摘要。具体来说，依据文本构造一个无向图 $G$ ，文本里的每个句子当作图 $G$ 的一个节点 $N$ ，每两个节点之间用一条边相连，边的权重代表两个节点的相似度，也就是两个句子的相似度。我们记节点 $N_i$ 和节点 $N_j$ 之间的边权重为 $w_{ij}$，节点 $V_i$ 的分数为 $WS(N_i)$ 。初始情况下每个节点的分数为1。后每次用如下公式更新全部节点，收敛。
+$$WS(N_i) = (1 - d) + d \times \sum_{j } \frac{w_{ji}}{\sum_{k }w_{jk}} \times WS(N_j)$$
+其中 $d$ 为阻尼系数，一般设置为0.85。在这里面最主要的就是节点 $N_i$ 和节点 $N_j$ 之间的边权重为 $w_{ij}$ ，也就是句子之间的相似度如何定义。
 
 这个是比较灵活的，我们可以使用不同方法来定义文本相似度。
 
@@ -116,10 +119,8 @@ $$
 
 ##### 原方法
 
-按照[TextRank原论文](https://aclanthology.org/W04-3252.pdf)中的方法，我们两个句子$S_i$和$S_j$看作两个集合，集合中的元素是句子里面的词，则两个句子相似度$Sim(S_i,S_j)$定义为
-$$
-Sim(S_i, S_j) =\frac{|\{w_k|w_k\in S_i\&w_k\in S_j\}|}{log(|S_i|)+log(|S_j|)}
-$$
+按照[TextRank原论文](https://aclanthology.org/W04-3252.pdf)中的方法，我们两个句子 $S_i$ 和 $S_j$ 看作两个集合，集合中的元素是句子里面的词，则两个句子相似度 $Sim(S_i,S_j)$ 定义为:
+$$Sim(S_i, S_j) =\frac{|\{w_k|w_k\in S_i\\& w_k\in S_j\}|}{log(|S_i|)+log(|S_j|)}$$
 也就是认为两个句子中同样的词出现得越多，两个句子越相似。
 
 
