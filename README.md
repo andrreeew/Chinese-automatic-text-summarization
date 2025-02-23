@@ -99,7 +99,7 @@ pytorch = 1.7.0
 
 接着直接跑main.ipynb文件即可，UI界面即可出现。
 
-注意由于mt5模型数据太大，故在这里移除，但是不影响TextRank方法的使用。我将mt5模型数据放在[百度网盘](https://pan.baidu.com/s/1eU3JPLGi8mP2oKnRmNEQXQ)，提取码为**jynk**。如果您想体验mt5，从网盘下载mt5-base文件夹，将mt5-base文件夹放在与main.ipynb同级的目录下，再重新运行main.ipynb文件即可。并且注意mt5生成速度较慢，生成时请耐心等待。
+注意由于mt5模型数据太大，故在这里移除，但是不影响TextRank方法的使用。我将mt5模型数据放在[百度网盘](https://pan.baidu.com/s/1zsaiFERvvqCs5cxeuBVg4A)，提取码为**4k5j**。如果您想体验mt5，从网盘下载mt5-base文件夹，将mt5-base文件夹放在与main.ipynb同级的目录下，再重新运行main.ipynb文件即可。并且注意mt5生成速度较慢，生成时请耐心等待。
 
 
 
